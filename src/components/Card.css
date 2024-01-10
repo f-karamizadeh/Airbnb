@@ -64,3 +64,29 @@ background-color: rgb(245, 243, 240);
         background-color: rgb(231, 226, 218);
        
 }
+.pbold{
+    font-weight: bold;
+    width: 70%;
+    white-space: nowrap;
+    display: inline-block;
+    overflow: hidden;
+    margin: 5px 5px;
+}
+.pstar{
+    display: inline-block;
+    top: 5px;
+    width: 50px;
+    height: 30px;
+}
+.pdate{
+    color: rgb(100, 102, 102);
+}
+.pprice{
+    font-weight: bold;
+}
+.star{
+    display: inline-block;
+    width: 17px;
+    height: 17px;
+
+}
