@@ -3,7 +3,7 @@ import * as Unicons from "@iconscout/react-unicons";
 
 const Footer = () => {
   return (
-    <div className="font-poppins w- h-auto flex justify-between items-center px-12 text-sm ">
+    <div className="font-poppins w- h-auto flex justify-between items-center px-12 text-sm mt-24 pt-24">
       <div id="footer-left" className="flex gap-4 font-light">
         <p>© 2024 Airbnb, Inc. </p>
         <ul className="flex list-disc gap-5 list-disc-smaller">
