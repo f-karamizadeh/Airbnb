@@ -44,10 +44,10 @@ const Slider = () => {
       >
         <Unicons.UilAngleRightB />
       </button>
-      <p className="pbold">Tiny House, Königreich jhjh jhjh  kjkjkj kjkjkkjijijijh sdsdsd</p> <span className="pstar"><Unicons.UilFavorite className="star"/>4,94</span>
+      <p className="pbold">Tiny House Berlin , Königreich </p> <span className="pstar"><Unicons.UilFavorite className="star"/>  4,94</span>
       <p>2 Gäste1 Schlafzimmer1 Bett1 Badezimmer</p>
-      <p className="pdate">7.-12. Okt.</p>
-      <p className="pprice"> 231 € <p>Nacht</p> </p>
+      <p className="pdate ">7.-12. Okt.</p>
+      <p className="pprice inlineblock"> 231 € </p> <p className="inlineblock"> Nacht</p>
        
     </div>
   );
