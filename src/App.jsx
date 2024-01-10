@@ -5,6 +5,7 @@ import Footer from "./components/footer";
 import Card from "./components/Card";
 import { createClient } from "contentful";
 
+
 function App() {
   const client = createClient({
     space: "hxtsxz7l061e",
