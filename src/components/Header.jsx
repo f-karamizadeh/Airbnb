@@ -23,11 +23,13 @@ function Header() {
         className="w-full h-auto flex justify-between items-center pt-2"
       >
         <div id="logo" className="pl-12 w-[25%]">
-        <a href="/"><img
-            src="/src/assets/bootbnb-logo.svg"
-            alt="bootbnb"
-            className="w-48"
-          /></a>
+          <a href="/">
+            <img
+              src="/src/assets/bootbnb-logo.svg"
+              alt="bootbnb"
+              className="w-48"
+            />
+          </a>
         </div>
 
         <div className="flex space-x-4">
