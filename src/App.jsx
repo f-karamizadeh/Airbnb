@@ -5,7 +5,6 @@ import Footer from "./components/footer";
 import Card from "./components/Card";
 import { createClient } from "contentful";
 
-
 function App() {
   const client = createClient({
     space: "hxtsxz7l061e",
@@ -18,7 +17,7 @@ function App() {
     client
       .getEntries()
       .then((response) => {
-        setEntries(response.items[1].fields.accommodations);
+        setEntries(response.items[0].fields.accommodations);
       })
       .catch(console.error);
   }, []);
@@ -26,7 +25,7 @@ function App() {
   return (
     <>
       <Header />
-      <Card />
+      <Card entries={entries} />
       <Footer />
     </>
   );
