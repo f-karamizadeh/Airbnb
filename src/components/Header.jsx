@@ -6,7 +6,7 @@ import MenuEntries from "./Menu/MenuEntries";
 import MenuWrapper from "./Menu/MenuWrapper";
 
 const navigation = [
-  { name: "Unterkünfte", href: "#", current: true },
+  { name: "Unterkünfte", href: "/", current: true },
   { name: "Entdeckungen", href: "#", current: false },
   { name: "Online-Entdeckungen", href: "#", current: false },
 ];
@@ -23,11 +23,11 @@ function Header() {
         className="w-full h-auto flex justify-between items-center pt-2"
       >
         <div id="logo" className="pl-12 w-[25%]">
-          <img
-            src="src/assets/bootbnb-logo.svg"
+        <a href="/"><img
+            src="/src/assets/bootbnb-logo.svg"
             alt="bootbnb"
             className="w-48"
-          />
+          /></a>
         </div>
 
         <div className="flex space-x-4">
@@ -77,7 +77,7 @@ function Header() {
               className="focus:outline-none bg-transparent"
             />
           </div>
-          <div class="inline-block h-12 w-0.5 bg-gray-100 opacity-100"></div>
+          <div className="inline-block h-12 w-0.5 bg-gray-100 opacity-100"></div>
 
           <div className="flex flex-col px-6 py-3 hover:bg-slate-300 hover:bg-opacity-30 hover:rounded-full w-[22%]">
             <p className="text-xs">Check In</p>

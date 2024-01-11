@@ -3,7 +3,7 @@ import "./App.css";
 import Header from "./components/header";
 import Footer from "./components/footer";
 import Card from "./components/Card";
-import Details from "./pages/Details";
+import Details from "./components/Details";
 import { createClient } from "contentful";
 import { Routes, Route } from "react-router-dom";
 
@@ -11,7 +11,6 @@ function App() {
   const client = createClient({
     space: "hxtsxz7l061e",
     accessToken: "utvoLJo4pyoCkWGeUmeSYnzcrucNPDnqIi1oaCKa0yw",
-    host: "	https://cdn.eu.contentful.com"
   });
 
   const [entries, setEntries] = useState([]);
