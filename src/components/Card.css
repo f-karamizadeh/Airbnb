@@ -1,8 +1,8 @@
 .card{
-    width: 21rem;
-    height: 20rem;
+    width: 17rem;
+    height: 16rem;
     border-radius: 15px;
-    border: 2px rgb(221, 218, 218) solid;
+    border: 2px rgb(248, 246, 246) solid;
     
     justify-self: stretch;
     position: relative;
@@ -29,6 +29,8 @@
             margin-right: 10px;
             font-weight: bold;
             background-color: rgb(231, 226, 218);
+            }.toggle{
+                display: unset;
             }
     
         .left{
@@ -50,19 +52,27 @@
                 background-color: rgb(231, 226, 218);
         }   
 }
-
-.grid{
+.toggle{
+    display: none;
+}
+.grid-container{
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-    margin-top: 1rem;
+    grid-template-rows: repeat(auto-fill, minmax(17rem, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr));
+
     gap: 15px;
     justify-content: stretch;
-    justify-self: stretch;
-    align-items: stretch;
+     align-items: stretch;
     align-content: space-between;
     margin: 45px 60px;
+    
 }
 
+.grid-item {
+    /* grid-auto-flow: row; */
+    margin-bottom: 140px;
+    
+  }
 
 .pbold{
     font-weight: bold;
@@ -70,30 +80,49 @@
     white-space: nowrap;
     display: inline-block;
     overflow: hidden;
-    margin: 0px 5px;
-}
-.pstar{
-    display: inline-block;
-    position: absolute;
-    bottom: -28px;
-    left: 10;
-    font-size: large;
-    /* width: 50px;
-    height: 30px; */
+  
 }
 .pdate{
     color: rgb(100, 102, 102);
 }
 .pprice{
     font-weight: bold;
+    margin-bottom: 20px;
+}
+.pstar{
+
+    position: absolute;
+    bottom: -28px;
+
+    font-size: large;
+    margin-left: 48px;
+
 }
 .star{
-    display: inline-block;
+    position: absolute;
     width: 17px;
     height: 17px;
-    margin-left: 25px;
+    left: -20px;
+    top: 4px;
 
 }
 .inlineblock{
     display: inline-block;
+}
+
+.heart{
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    color: rgb(235, 241, 241);
+&:hover{
+    color: rgb(218, 221, 221);
+}}
+
+.guestfav{
+    background-color: rgb(243, 245, 247);
+    position: absolute;
+    top: 10px;
+    left: 15px;
+
 }

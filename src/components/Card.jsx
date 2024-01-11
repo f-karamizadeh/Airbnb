@@ -6,7 +6,7 @@ import test from "./image4.jpg"
 export default function Card() {
 
     return(
-        <div class="auto-rows-auto	grid">
+        <div class="auto-rows-auto	grid-container">
             <Slider />
           </div>
     )
