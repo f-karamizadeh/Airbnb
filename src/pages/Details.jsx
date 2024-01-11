@@ -1,11 +1,12 @@
-import React from 'react'
 import * as Unicons from '@iconscout/react-unicons';
-import { DateRange, Calendar } from 'react-date-range';
+import { DateRange } from 'react-date-range';
 import 'react-date-range/dist/styles.css'; // main css file
 import 'react-date-range/dist/theme/default.css'; // theme css file
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 
-const Details = () => {
+const Details = (entries) => {
+    const { id } = useParams();
     const [date, setDate] = useState([
         {
           startDate: new Date(),
@@ -13,11 +14,29 @@ const Details = () => {
           key: 'selection'
         }
       ]);
+      
+
+      const calculateNights = () => {
+        if (date[0].endDate !== null) {
+        const startDate = date[0].startDate
+        const endDate = date[0].endDate
+        const timeDiff = Math.abs(endDate - startDate);
+        const diffDays = Math.ceil(timeDiff / (1000 * 60 * 60 * 24)); 
+        return diffDays
+        } else {
+            return 1}
+    }
+
+
+
+console.log(calculateNights())
+
+
 
   return (
     <div className='flex flex-col justify-center items-center mt-16'>
         <div className='w-4/6 flex justify-between'>
-            <div className='text-3xl font-bold'>Überschrift der Unterkunft</div>
+            <div className='text-3xl font-bold'>Name Unterkunft</div>
                 <div className='flex space-x-4'>
                     <div className='text-sm flex items-center justify-end'><Unicons.UilShare size={16} className="mr-2"/> Teilen</div>
                     <div className='text-sm flex items-center justify-end'><Unicons.UilHeart size={16} className="mr-2"/> Speichern</div>
