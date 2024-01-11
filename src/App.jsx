@@ -4,6 +4,7 @@ import Header from "./components/header";
 import Footer from "./components/footer";
 import Card from "./components/Card";
 import { createClient } from "contentful";
+import { Routes, Route } from "react-router-dom";
 
 function App() {
   const client = createClient({
@@ -25,7 +26,9 @@ function App() {
   return (
     <>
       <Header />
-      <Card entries={entries} />
+      <Routes>
+        <Route path="/" element={<Card entries={entries} />} />
+      </Routes>
       <Footer />
     </>
   );
