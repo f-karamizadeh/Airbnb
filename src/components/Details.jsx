@@ -5,8 +5,27 @@ import 'react-date-range/dist/theme/default.css'; // theme css file
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
-const Details = (entries) => {
+const Details = ({entries}) => {
+    if (!entries || !entries.unterkuenfte || entries.unterkuenfte.length === 0) {
+        console.log(entries);
+        return <div>loading...</div>;
+      }
+    
+      
     const { id } = useParams();
+    const nameUnterkunft = entries.unterkuenfte[id].name;
+    const ortUnterkunft = entries.unterkuenfte[id].ort;
+    const preisUnterkunft = entries.unterkuenfte[id].preis;
+    const cleaningFee = 59;
+    const serviceFee = 39;
+    const deposit = preisUnterkunft * 2.5;
+    const images = entries.unterkuenfte[id].bilder;
+
+      console.log(images)
+    
+    
+    
+    
     const [date, setDate] = useState([
         {
           startDate: new Date(),
@@ -15,7 +34,7 @@ const Details = (entries) => {
         }
       ]);
       
-
+      
       const calculateNights = () => {
         if (date[0].endDate !== null) {
         const startDate = date[0].startDate
@@ -27,16 +46,24 @@ const Details = (entries) => {
             return 1}
     }
 
-
-
 console.log(calculateNights())
 
+const calculatePrice = () => {
+    const nights = calculateNights();
+    const price = preisUnterkunft;
+    const total = nights * price;
+    return total;
+}
+
+const totalPrice = calculatePrice() + cleaningFee + serviceFee + deposit;
+
+console.log(entries)
 
 
   return (
     <div className='flex flex-col justify-center items-center mt-16'>
         <div className='w-4/6 flex justify-between'>
-            <div className='text-3xl font-bold'>Name Unterkunft</div>
+            <div className='text-3xl font-bold'>{nameUnterkunft}</div>
                 <div className='flex space-x-4'>
                     <div className='text-sm flex items-center justify-end'><Unicons.UilShare size={16} className="mr-2"/> Teilen</div>
                     <div className='text-sm flex items-center justify-end'><Unicons.UilHeart size={16} className="mr-2"/> Speichern</div>
@@ -44,10 +71,10 @@ console.log(calculateNights())
         </div>
 
         <div className='h-auto my-10 flex justify-center items-center gap-4'>
-        <div><img src="https://picsum.photos/500" className='bg-bootbnb-800 w-[497px] h-[497px] rounded-tl-xl rounded-bl-xl' /></div>
+        <div><img src={images[1]} className='bg-bootbnb-800 w-[497px] h-[497px] rounded-tl-xl rounded-bl-xl' /></div>
             <div className='flex flex-col gap-4'>
                 <div className='flex gap-4'>
-                    <div><img src="https://picsum.photos/300" className='w-[240px] h-[240px] bg-bootbnb-400' /></div>
+                    <div><img src={images[0]} className='w-[240px] h-[240px] bg-bootbnb-400' /></div>
                     <div><img src="https://picsum.photos/310" className='w-[240px] h-[240px] bg-bootbnb-400 rounded-tr-xl' /></div>
                 </div>
                 <div className='flex gap-4'>
@@ -60,7 +87,7 @@ console.log(calculateNights())
         <div className='w-4/6 flex justify-between'>
             <div className='flex flex-col w-[60%]'>
 
-                <div className='text-2xl font-bold mb-6'>Name / Ort</div>
+                <div className='text-2xl font-bold mb-6'>{nameUnterkunft} in {ortUnterkunft}</div>
                 <div className='flex space-x-4 items-center'>
                    <div><Unicons.UilUserCircle size={48} /></div> 
                    <div className='flex flex-col'>
@@ -119,7 +146,7 @@ console.log(calculateNights())
             <div className='flex flex-col items-end w-[35%]'>
                 <div className='p-4 w-10/12 rounded-lg border-gray-200 border-solid border shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)] flex flex-col items-baseline gap-4' >
                     <div>
-                        <span className='text-xl font-semibold mr-2'>79€</span>Nacht
+                        <span className='text-xl font-semibold mr-2'>{preisUnterkunft} €</span>Nacht
                     </div> 
                     <div className=''>
                         <DateRange
@@ -140,25 +167,25 @@ console.log(calculateNights())
 
                     <div className='flex flex-col space-y-2 w-full'>
                         <div className='flex items-center justify-between text-gr'>
-                            <div className='text-sm'>79€ * 2 Nächte</div>
-                            <div className='text-sm'>158€</div>
+                            <div className='text-sm'>{preisUnterkunft}€ * {calculateNights()} Nächte</div>
+                            <div className='text-sm'>{calculatePrice()} €</div>
                         </div>
                         <div className='flex items-center justify-between'>
                             <div className='text-sm'>Reinigungsgebühr</div>
-                            <div className='text-sm'>79€</div>
+                            <div className='text-sm'>{cleaningFee}€</div>
                         </div>
                         <div className='flex items-center justify-between'>
                             <div className='text-sm'>Servicegebühr</div>
-                            <div className='text-sm'>79€</div>
+                            <div className='text-sm'>{serviceFee}€</div>
                         </div>
                         <div className='flex items-center justify-between'>
                             <div className='text-sm'>Kaution</div>
-                            <div className='text-sm'>79€</div>
+                            <div className='text-sm'>{deposit}€</div>
                         </div>
                         <hr className='border-gray-400 py-2'></hr>
                         <div className='flex items-center justify-between font-semibold'>
                             <div className='text-md'>Gesamtpreis</div>
-                            <div className='text-md'>395€</div>
+                            <div className='text-md'>{totalPrice}€</div>
                         </div>
                     </div>
 

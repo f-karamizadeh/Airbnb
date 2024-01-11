@@ -23,6 +23,7 @@ export default {
           '950': '#022e31',
       },
       },
+      
     },
   },
   plugins: [],
