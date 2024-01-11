@@ -2,15 +2,15 @@ import { React } from "react";
 
 function MenuEntries() {
   return (
-    <div className="absolute z-10 top-full">
+    <div className="absolute w-[18rem] z-10 top-full p-9 shadow-xl rounded-xl right-1 font-light">
       <ul>
-        <li>Registrieren</li>
-        <li>Einloggen</li>
+        <li className="p-1 font-semibold">Registrieren</li>
+        <li className="p-1">Einloggen</li>
       </ul>
       <ul>
-        <li>Geschenkkarten</li>
-        <li>Als Gastgeber:in einloggen</li>
-        <li>Hilfe-Center</li>
+        <li className="p-1">Geschenkkarten</li>
+        <li className="p-1">Als Gastgeber:in loslegen</li>
+        <li className="p-1">Hilfe-Center</li>
       </ul>
     </div>
   );
