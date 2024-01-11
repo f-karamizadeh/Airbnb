@@ -7,12 +7,6 @@ export default function Card({ entries }) {
   return (
     <div className="auto-rows-auto	grid-container">
       <Slider entries={entries} />
-      <Slider entries={entries} />
-      <Slider entries={entries} />
-      <Slider entries={entries} />
-      <Slider entries={entries} />
-      <Slider entries={entries} />
-      <Slider entries={entries} />
     </div>
   );
 }
