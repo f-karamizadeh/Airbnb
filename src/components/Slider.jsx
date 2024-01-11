@@ -43,7 +43,7 @@ const Slider = ({ entries }) => {
       >
         <Unicons.UilAngleRightB />
       </button>
-      <p className="pbold">Tiny House in Drimnin, Vereinigtes Königreich</p>
+      <p className="pbold">Tiny House, Königreich jhjh jhjh  kjkjkj kjkjkkjijijijh sdsdsd</p> <span className="pstar"><Unicons.UilFavorite className="star"/>4,94</span>
       <p>2 Gäste1 Schlafzimmer1 Bett1 Badezimmer</p>
       <p className="pdate">7.-12. Okt.</p>
       <p className="pprice">
