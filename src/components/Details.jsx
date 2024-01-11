@@ -20,9 +20,8 @@ const Details = ({entries}) => {
     const serviceFee = 39;
     const deposit = preisUnterkunft * 2.5;
     const images = entries.unterkuenfte[id].bilder;
-
-      console.log(images)
-    
+      const bewertung = entries.unterkuenfte[id].bewertung;
+      const ausstattung = entries.unterkuenfte[id].ausstattung;
     
     
     
@@ -98,6 +97,10 @@ console.log(entries)
                 </div>
                 <hr className='border-gray-300 border my-4'></hr>
 
+                <div className='flex justify-center items-center text-4xl font-bold'><Unicons.UilStar size={40} className="mr-2 text-[#fcba03]" />{bewertung}</div>
+
+                <hr className='border-gray-300 border my-4'></hr>
+
                 <div className='flex flex-col space-y-4'>
                     <div className='flex items-center space-x-4'>
                         <Unicons.UilLocationPoint size={24} />
@@ -140,7 +143,15 @@ console.log(entries)
 
                 <hr className='border-gray-300 border my-4'></hr>
 
-
+                <div className='flex flex-col space-y-4 py-4'>
+                    <h3 className="text-xl font font-semibold">Ausstattung</h3>
+                    <div><ul>
+                        <li className='flex flex-row'><Unicons.UilCheck className="mr-2" />{ausstattung[0]}</li>
+                        <li className='flex flex-row'><Unicons.UilCheck className="mr-2" />{ausstattung[1]}</li>
+                        <li className='flex flex-row'><Unicons.UilCheck className="mr-2" />{ausstattung[2]}</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
 
             <div className='flex flex-col items-end w-[35%]'>
