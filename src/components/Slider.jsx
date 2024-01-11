@@ -7,6 +7,10 @@ import image3 from "./image3.jpg";
 import image4 from "./image4.jpg";
 
 const Slider = ({ entries }) => {
+  if (!entries || !entries.unterkuenfte || entries.unterkuenfte.length === 0) {
+    console.log(entries);
+    return <div>loading...</div>;
+  }
   const images = entries.unterkuenfte[0].bilder;
   const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -19,8 +23,6 @@ const Slider = ({ entries }) => {
       (prevIndex) => (prevIndex - 1 + images.length) % images.length
     );
   };
-
-  console.log(entries);
 
   return (
     <div className="card">
@@ -43,7 +45,7 @@ const Slider = ({ entries }) => {
       >
         <Unicons.UilAngleRightB />
       </button>
-      <p className="pbold">Tiny House, Königreich jhjh jhjh  kjkjkj kjkjkkjijijijh sdsdsd</p> <span className="pstar"><Unicons.UilFavorite className="star"/>4,94</span>
+      <p className="pbold">Tiny House in Drimnin, Vereinigtes Königreich</p>
       <p>2 Gäste1 Schlafzimmer1 Bett1 Badezimmer</p>
       <p className="pdate">7.-12. Okt.</p>
       <p className="pprice">
