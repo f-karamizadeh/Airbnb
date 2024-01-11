@@ -6,7 +6,6 @@ function Toggle({ children }) {
   const [on, setOn] = useState(false);
 
   const toggle = () => {
-    console.log("toggled");
     setOn((prevOn) => !prevOn);
   };
 
