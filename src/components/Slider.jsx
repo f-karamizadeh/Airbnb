@@ -25,34 +25,40 @@ const Slider = ({ entries }) => {
   };
 
   return (
-    <div className="card">
-      <img
-        src={images[currentIndex]}
-        alt={`Slide ${currentIndex}`}
-        className="image  "
-      />
 
-      <button
+    <>
+    <div className="card grid-item">
+            <img 
+              src={images[currentIndex]}
+              alt={`Slide ${currentIndex}`}
+              className="image  "
+          />
+          <Unicons.UilHeart className="heart"/>
+          <span className="guestfav text-gray-600 font-semibold 
+                          rounded-xl  text-sm px-2 py-0.5">Guest favorite</span>
+
+       <button
         className="absolute left-0 top-1/2   px-1 py-1 left"
         onClick={prevSlide}
       >
-        <Unicons.UilAngleLeftB />
+        <Unicons.UilAngleLeftB className="toggle"/>
       </button>
 
       <button
         className="absolute right-0 top-1/2  px-1 py-1  right"
         onClick={nextSlide}
       >
-        <Unicons.UilAngleRightB />
+        <Unicons.UilAngleRightB className="toggle"/>
       </button>
-      <p className="pbold">Tiny House in Drimnin, Vereinigtes Königreich</p>
+
+      <p className="pbold">Tiny House Berlin , Königreich </p> <span className="pstar"><Unicons.UilFavorite className="star"/>  4,94</span>
       <p>2 Gäste1 Schlafzimmer1 Bett1 Badezimmer</p>
-      <p className="pdate">7.-12. Okt.</p>
-      <p className="pprice">
-        {" "}
-        231 € <p>Nacht</p>{" "}
-      </p>
+      <p className="pdate ">7.-12. Okt.</p>
+      <p className="pprice inlineblock"> 231 € </p> <p className="inlineblock"> Nacht</p>
+
     </div>
+    
+    </>
   );
 };
 
