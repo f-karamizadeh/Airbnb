@@ -28,8 +28,10 @@ function App() {
     <>
       <Header />
       <Routes>
-        <Route path="/" element={<Card entries={entries} />} />
-        <Route path="/details/:id" element={<Details entries={entries} />} />
+        <Route path="/">
+          <Route index element={<Card entries={entries} />} />
+          <Route path="details/:id" element={<Details entries={entries} />} />
+        </Route>
       </Routes>
       <Footer />
     </>
