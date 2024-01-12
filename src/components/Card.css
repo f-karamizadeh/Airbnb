@@ -77,7 +77,7 @@
 .pbold{
     font-weight: bold;
     width: 70%;
-    white-space: nowrap;
+    white-space: wrap;
     display: inline-block;
     overflow: hidden;
   
