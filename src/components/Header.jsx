@@ -16,6 +16,8 @@ function classNames(...classes) {
 }
 
 function Header() {
+  const buttonRef = React.useRef(null);
+
   return (
     <div>
       <div
@@ -56,9 +58,9 @@ function Header() {
           <Toggle>
             <Toggle.Button>
               <MenuWrapper>
-                <MenuButton />
+                <MenuButton ref={buttonRef} />
                 <Toggle.On>
-                  <MenuEntries />
+                  <MenuEntries buttonRef={buttonRef} />
                 </Toggle.On>
               </MenuWrapper>
             </Toggle.Button>

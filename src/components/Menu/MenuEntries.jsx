@@ -1,21 +1,25 @@
 import { React, useState, useEffect, useRef, useContext } from "react";
 import { ToggleContext } from "../Toggle/Toggle";
 
-function MenuEntries() {
+function MenuEntries({ buttonRef }) {
   const menuRef = useRef(null);
 
   const { on, toggle } = useContext(ToggleContext);
 
   const handleClickOutside = (event) => {
+    // Überprüfen, ob das geklickte Element der Toggle-Button ist
+    if (buttonRef.current && buttonRef.current.contains(event.target)) {
+      return; // Wenn ja, die Funktion einfach zurückgeben
+    }
     if (menuRef.current && !menuRef.current.contains(event.target)) {
       toggle((prev) => !prev);
     }
   };
 
   useEffect(() => {
-    document.addEventListener("mouseup", handleClickOutside);
+    document.addEventListener("mousedown", handleClickOutside);
     return () => {
-      document.removeEventListener("mouseup", handleClickOutside);
+      document.removeEventListener("mousedown", handleClickOutside);
     };
   }, []);
   return (
