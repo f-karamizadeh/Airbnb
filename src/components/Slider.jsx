@@ -11,11 +11,13 @@ const Slider = ({ unterkunft }) => {
   const images = unterkunft.bilder;
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  const nextSlide = () => {
+  const nextSlide = (e) => {
+    e.preventDefault();
     setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
   };
 
-  const prevSlide = () => {
+  const prevSlide = (e) => {
+    e.preventDefault();
     setCurrentIndex(
       (prevIndex) => (prevIndex - 1 + images.length) % images.length
     );
@@ -40,8 +42,7 @@ const Slider = ({ unterkunft }) => {
           <button
             className="absolute left-0 top-1/2   px-1 py-1 left"
             onClick={(e) => {
-              e.preventDefault();
-              prevSlide();
+              prevSlide(e);
             }}
           >
             <Unicons.UilAngleLeftB className="toggle" />
@@ -49,8 +50,7 @@ const Slider = ({ unterkunft }) => {
           <button
             className="absolute right-0 top-1/2  px-1 py-1  right"
             onClick={(e) => {
-              e.preventDefault();
-              nextSlide();
+              nextSlide(e);
             }}
           >
             <Unicons.UilAngleRightB className="toggle" />
