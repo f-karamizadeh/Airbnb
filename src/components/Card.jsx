@@ -1,7 +1,6 @@
 import React from "react";
 import "./Card.css";
 import Slider from "./Slider.jsx";
-import test from "./image4.jpg";
 
 export default function Card({ entries }) {
   if (!entries || !entries.unterkuenfte || entries.unterkuenfte.length === 0) {
