@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 const Footer = () => {
   return (
     <div className="bg-slate-50 m-0 p-4">
-      <div className="grid grid-cols-3 mx-12 pb-8 leading-10 text-sm border-b-2">
+      <div className="grid grid-cols-3 mx-12 pb-8 leading-8 text-sm border-b-2">
         <ul>
           <li className="font-semibold">Unterstützung</li>
           <li className="font-light">
