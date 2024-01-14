@@ -33,12 +33,14 @@ const Slider = ({ unterkunft }) => {
             className="image  "
           />
           <Unicons.UilHeart className="heart" />
-          <span
-            className="guestfav text-gray-600 font-semibold 
+          {unterkunft.guest_favorite && (
+            <span
+              className="guestfav text-gray-600 font-semibold 
                           rounded-xl  text-sm px-2 py-0.5"
-          >
-            Guest favorite
-          </span>
+            >
+              Guest favorite
+            </span>
+          )}
           <button
             className="absolute left-0 top-1/2   px-1 py-1 left"
             onClick={(e) => {
