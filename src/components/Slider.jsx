@@ -38,7 +38,7 @@ const Slider = ({ unterkunft }) => {
               className="guestfav text-gray-600 font-semibold 
                           rounded-xl  text-sm px-2 py-0.5"
             >
-              Guest favorite
+              Gäste-Favorit
             </span>
           )}
           <button
