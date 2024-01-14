@@ -40,7 +40,7 @@ const Slider = ({ unterkunft }) => {
           <button
             className="absolute left-0 top-1/2   px-1 py-1 left"
             onClick={(e) => {
-              e.stopPropagation();
+              e.preventDefault();
               prevSlide();
             }}
           >
@@ -49,7 +49,7 @@ const Slider = ({ unterkunft }) => {
           <button
             className="absolute right-0 top-1/2  px-1 py-1  right"
             onClick={(e) => {
-              e.stopPropagation();
+              e.preventDefault();
               nextSlide();
             }}
           >
