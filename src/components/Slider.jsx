@@ -39,21 +39,29 @@ const Slider = ({ unterkunft }) => {
           </span>
           <button
             className="absolute left-0 top-1/2   px-1 py-1 left"
-            onClick={prevSlide}
+            onClick={(e) => {
+              e.stopPropagation();
+              prevSlide();
+            }}
           >
             <Unicons.UilAngleLeftB className="toggle" />
           </button>
           <button
             className="absolute right-0 top-1/2  px-1 py-1  right"
-            onClick={nextSlide}
+            onClick={(e) => {
+              e.stopPropagation();
+              nextSlide();
+            }}
           >
             <Unicons.UilAngleRightB className="toggle" />
           </button>
-          <p className="pbold">{unterkunft.name}, {unterkunft.ort}</p>{" "}
+          <p className="pbold">
+            {unterkunft.name}, {unterkunft.ort}
+          </p>{" "}
           <span className="pstar">
             <Unicons.UilFavorite className="star" /> {unterkunft.bewertung}
           </span>
-          <p>{unterkunft.ausstattung.join(',')}</p>
+          <p>{unterkunft.ausstattung.join(",")}</p>
           <p className="pdate ">7.-12. Okt. </p>
           <p className="pprice inlineblock"> {unterkunft.preis} € </p>{" "}
           <p className="inlineblock"> Nacht</p>
