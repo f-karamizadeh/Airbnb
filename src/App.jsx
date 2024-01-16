@@ -29,7 +29,7 @@ function App() {
       <Header />
       <Routes>
         <Route path="/">
-          <Route index element={<Card entries={entries} />} />
+          <Route  index element={<Card entries={entries} />} />
           <Route path="details/:id" element={<Details entries={entries} />} />
         </Route>
       </Routes>
