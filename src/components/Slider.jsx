@@ -3,10 +3,6 @@ import * as Unicons from "@iconscout/react-unicons";
 import { Link, useParams } from "react-router-dom";
 import "./Card.css";
 
-import image1 from "./image1.jpg";
-import image2 from "./image2.jpg";
-import image3 from "./image3.jpg";
-import image4 from "./image4.jpg";
 
 const Slider = ({ unterkunft }) => {
   const images = unterkunft.bilder;
@@ -37,6 +33,7 @@ const Slider = ({ unterkunft }) => {
             className="image  "
           />
           <Unicons.UilHeart className="heart" />
+
           <span
             className={`${unterkunft.bewertung >= 4.7 ? guestfav : 'hide'}`}
           >
@@ -48,7 +45,9 @@ const Slider = ({ unterkunft }) => {
            {/* <span id="spn2" className={`${currentIndex == 3 ? 'circle' : 'deactivecircle'}`}></span>
            <span id="spn3" className={`${currentIndex == 4 ? 'circle' : 'deactivecircle'}`}></span> */}
          
-         <button
+
+          <button
+
             className="absolute left-0 top-1/2   px-1 py-1 left"
             onClick={(e) => {
               prevSlide(e);
