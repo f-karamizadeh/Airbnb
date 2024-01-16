@@ -2,10 +2,12 @@ import * as Unicons from "@iconscout/react-unicons";
 import { DateRange } from "react-date-range";
 import "react-date-range/dist/styles.css"; // main css file
 import "react-date-range/dist/theme/default.css"; // theme css file
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
 const Details = ({ entries }) => {
+  const [lat, setLat] = useState(0);
+  const [lng, setLng] = useState(0);
   const [date, setDate] = useState([
     {
       startDate: new Date(),
@@ -30,6 +32,7 @@ const Details = ({ entries }) => {
 
   const { name, ort, preis, bilder, bewertung, ausstattung } =
     filteredUnterkunft;
+   
 
   const cleaningFee = 59;
   const serviceFee = 39;
@@ -221,7 +224,7 @@ const Details = ({ entries }) => {
           </div>
         </div>
 
-        <div className="flex flex-col lg:items-center w-full lg:w-[35%]">
+        <div className="flex flex-col lg:items-center w-full md:min-w-[430px] lg:w-[450px]">
           <div className="p-4 lg:w-10/12 rounded-lg border-gray-200 border-solid border shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)] flex flex-col items-baseline gap-4">
             <div>
               <span className="text-xl font-semibold mr-2">{preis} €</span>
@@ -233,7 +236,8 @@ const Details = ({ entries }) => {
                 onChange={(item) => setDate([item.selection])}
                 moveRangeOnFirstSelection={false}
                 ranges={date}
-              />
+                minDate={new Date()}
+                 />
             </div>
             <div className="justify-center w-full">
               <button className="p-3 rounded-lg text-white font-semibold text-lg bg-bootbnb-500 w-full">
