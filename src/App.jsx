@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import "./App.css";
-import Header from "./components/header";
+import Header from "./components/Header/Header";
 import Footer from "./components/footer";
 import Card from "./components/Card";
 import Details from "./components/Details";
@@ -29,7 +29,7 @@ function App() {
       <Header />
       <Routes>
         <Route path="/">
-          <Route  index element={<Card entries={entries} />} />
+          <Route index element={<Card entries={entries} />} />
           <Route path="details/:id" element={<Details entries={entries} />} />
         </Route>
       </Routes>
