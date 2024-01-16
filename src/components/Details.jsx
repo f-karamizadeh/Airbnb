@@ -19,7 +19,6 @@ const Details = ({ entries }) => {
   const { id } = useParams();
   const idUrl = Number(id);
 
-
   if (!entries || !entries.unterkuenfte || entries.unterkuenfte.length === 0) {
     console.log(entries);
     return <div>loading...</div>;
