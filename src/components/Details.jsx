@@ -59,18 +59,18 @@ const Details = ({ entries }) => {
   return (
     <div className="flex flex-col justify-center items-center mt-16">
       <div className="w-4/6 flex justify-between">
-        <div className="text-3xl font-bold">{name}</div>
+        <div className="hidden lg:block lg:text-3xl font-bold">{name}</div>
         <div className="flex space-x-4">
-          <div className="text-sm flex items-center justify-end">
+          <div className="text-sm lg:flex items-center justify-end hidden">
             <Unicons.UilShare size={16} className="mr-2" /> Teilen
           </div>
-          <div className="text-sm flex items-center justify-end">
+          <div className="text-sm hidden lg:flex items-center justify-end">
             <Unicons.UilHeart size={16} className="mr-2" /> Speichern
           </div>
         </div>
       </div>
 
-      <div className="h-auto my-10 flex justify-center items-center gap-4">
+      <div className="h-auto my-10 lg:flex justify-center items-center gap-4 hidden">
         <div>
           <img
             src={bilder[0]}
@@ -109,9 +109,15 @@ const Details = ({ entries }) => {
         </div>
       </div>
 
-      <div className="w-4/6 flex justify-between">
-        <div className="flex flex-col w-[60%]">
-          <div className="text-2xl font-bold mb-6">
+      <div className="lg:hidden my-2 flex flex-col gap-4">
+        <div>
+          <img src={bilder[0]} className="w-full h-auto" />
+        </div>
+      </div>
+
+      <div className="px-2 lg:w-4/6 lg:flex justify-between">
+        <div className="flex flex-col lg:w-[60%]">
+          <div className="text-lg lg:text-2xl font-bold mb-6">
             {name} in {ort}
           </div>
           <div className="flex space-x-4 items-center">
@@ -215,8 +221,8 @@ const Details = ({ entries }) => {
           </div>
         </div>
 
-        <div className="flex flex-col items-end w-[35%]">
-          <div className="p-4 w-10/12 rounded-lg border-gray-200 border-solid border shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)] flex flex-col items-baseline gap-4">
+        <div className="flex flex-col lg:items-center w-full lg:w-[35%]">
+          <div className="p-4 lg:w-10/12 rounded-lg border-gray-200 border-solid border shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)] flex flex-col items-baseline gap-4">
             <div>
               <span className="text-xl font-semibold mr-2">{preis} €</span>
               Nacht

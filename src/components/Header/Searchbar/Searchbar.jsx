@@ -7,7 +7,7 @@ const Searchbar = () => {
   return (
     <div
       id="header-bottom"
-      className="w-full h-auto flex justify-center items-center mt-4 font-Poppins text-sm"
+      className="w-full h-auto lg:flex justify-center items-center mt-4 font-Poppins text-sm hidden"
     >
       <div className="w-6/12 h-16 rounded-full border-gray-400 border-solid border flex flex-row items-center">
         <Wohin />

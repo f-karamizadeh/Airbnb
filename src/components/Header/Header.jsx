@@ -23,9 +23,9 @@ function Header() {
     <div>
       <div
         id="header-top"
-        className="w-full h-auto flex justify-between items-center pt-2"
+        className=" w-96 lg:w-full h-auto flex justify-between items-center pt-2"
       >
-        <div id="logo" className="pl-12 w-[25%]">
+        <div id="logo" className="pl-12 w-[50%] lg:w-[25%] ">
           <a href="/">
             <img
               src="/src/assets/bootbnb-logo.svg"
@@ -35,7 +35,7 @@ function Header() {
           </a>
         </div>
 
-        <div className="flex space-x-4">
+        <div className="lg:flex lg:flex-row hidden lg:space-x-4">
           {navigation.map((item) => (
             <a
               key={item.name}
@@ -51,8 +51,8 @@ function Header() {
           ))}
         </div>
 
-        <div className="justify-end pr-12 font-Poppins flex flex-row items-center w-[25%]">
-          <p className="font-Poppins text-sm font-medium pr-2">
+        <div className="justify-end pr-2 lg:pr-12 font-Poppins flex flex-row items-center w-[25%]">
+          <p className="font-Poppins text-sm font-medium pr-2 hidden lg:block">
             Als Gastgeber:in loslegen
           </p>
           <Unicons.UilGlobe className="text-2xl" />
