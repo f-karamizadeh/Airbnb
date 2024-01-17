@@ -4,10 +4,16 @@ import "react-date-range/dist/styles.css"; // main css file
 import "react-date-range/dist/theme/default.css"; // theme css file
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import axios from "axios";
+import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
+import {L, Icon} from 'leaflet';
+import 'leaflet/dist/leaflet.css';
+
 
 const Details = ({ entries }) => {
   const [lat, setLat] = useState(0);
   const [lng, setLng] = useState(0);
+  const position = [lat, lng];
   const [date, setDate] = useState([
     {
       startDate: new Date(),
@@ -32,12 +38,24 @@ const Details = ({ entries }) => {
 
   const { name, ort, preis, bilder, bewertung, ausstattung } =
     filteredUnterkunft;
-   
 
-  const cleaningFee = 59;
+
+  const city = {ort};
+    useEffect(() => {
+      axios.get(`https://geocode.maps.co/search?q=${ort}&api_key=65a51c8d6d1e3604044118uife7188e`)
+      .then((response) => {
+        setLat(response.data[0].lat);
+        setLng(response.data[0].lon);
+      })
+    }, [id])
+  
+    console.log(lat, lng);
+
+   const cleaningFee = 59;
   const serviceFee = 39;
   const deposit = preis * 2.5;
 
+ 
   const calculateNights = () => {
     if (date[0].endDate !== null) {
       const startDate = date[0].startDate;
@@ -221,9 +239,29 @@ const Details = ({ entries }) => {
                 </li>
               </ul>
             </div>
-          </div>
+          </div> 
+          
+          {lng.length > 0 &&
+          <div id="map" className="w-auto h-auto mb-12">
+        <MapContainer center={[lat, lng]} zoom={13} scrollWheelZoom={true}>
+  <TileLayer
+    attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+  />
+  <Marker position={[lat, lng]}>
+    <Popup>
+      A pretty CSS3 popup. <br /> Easily customizable.
+    </Popup>
+  </Marker>
+</MapContainer>
+        </div>
+          }
+
+          
+
         </div>
 
+       
         <div className="flex flex-col lg:items-center w-full md:min-w-[430px] lg:w-[450px]">
           <div className="p-4 lg:w-10/12 rounded-lg border-gray-200 border-solid border shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)] flex flex-col items-baseline gap-4">
             <div>
