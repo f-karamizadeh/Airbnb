@@ -5,14 +5,11 @@ import "./Card.css";
 
 const Slider = ({ unterkunft }) => {
   const images = unterkunft.bilder;
-
   const [currentIndex, setCurrentIndex] = useState(0);
-  const guestfav='guestfav text-gray-600 font-semibold rounded-xl  text-sm px-2 py-0.5';
 
   const nextSlide = (e) => {
     e.preventDefault();
     setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
-    
   };
 
   const prevSlide = (e) => {
@@ -32,18 +29,15 @@ const Slider = ({ unterkunft }) => {
             className="image  "
           />
           <Unicons.UilHeart className="heart" />
-          <span
-            className={`${unterkunft.bewertung >= 4.7 ? guestfav : 'hide'}`}
-          >
-            Guest favorite
-          </span>
-         
-           <span id="spn0" className={`${currentIndex == 0 ? 'circle' : 'deactivecircle'}`}></span>
-           <span id="spn1" className={`${currentIndex == 1 ? 'circle' : 'deactivecircle'}`}></span>
-           {/* <span id="spn2" className={`${currentIndex == 3 ? 'circle' : 'deactivecircle'}`}></span>
-           <span id="spn3" className={`${currentIndex == 4 ? 'circle' : 'deactivecircle'}`}></span> */}
-         
-         <button
+          {unterkunft.guest_favorite && (
+            <span
+              className="guestfav text-gray-600 font-semibold 
+                          rounded-xl  text-sm px-2 py-0.5"
+            >
+              Gäste-Favorit
+            </span>
+          )}
+          <button
             className="absolute left-0 top-1/2   px-1 py-1 left"
             onClick={(e) => {
               prevSlide(e);
