@@ -11,26 +11,7 @@ import "leaflet/dist/leaflet.css";
 import { createClient } from "contentful";
 import ClipLoader from "react-spinners/ClipLoader";
 
-const Details = () => {
-  const [entries, setEntries] = useState([]);
-  const [loading, setLoading] = useState(false);
-
-  const client = createClient({
-    space: "hxtsxz7l061e",
-    accessToken: "utvoLJo4pyoCkWGeUmeSYnzcrucNPDnqIi1oaCKa0yw",
-  });
-
-  useEffect(() => {
-    setLoading(true);
-    client
-      .getEntries()
-      .then((response) => {
-        setEntries(response.items[0].fields.accommodations.unterkuenfte);
-        setLoading(false);
-      })
-      .catch(console.error);
-  }, []);
-
+const Details = ({ entries }) => {
   const { id } = useParams();
   const idUrl = Number(id);
 
@@ -99,7 +80,6 @@ const Details = () => {
         <div className="flex justify-center m-10">
           <ClipLoader
             color="#44b3be"
-            loading={loading}
             size={50}
             aria-label="Loading Spinner"
             data-testid="loader"
