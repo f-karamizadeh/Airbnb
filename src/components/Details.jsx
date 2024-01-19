@@ -30,7 +30,7 @@ const Details = ({ entries }) => {
     return <div>loading...</div>;
   }
 
-  const unterkunftArray = entries.unterkuenfte;
+   const unterkunftArray = entries.unterkuenfte;
 
   const filteredUnterkunft = unterkunftArray.find(
     (unterkunft) => unterkunft.id === idUrl
@@ -39,19 +39,19 @@ const Details = ({ entries }) => {
   const { name, ort, preis, bilder, bewertung, ausstattung } =
     filteredUnterkunft;
 
-
-  const city = {ort};
     useEffect(() => {
-      axios.get(`https://geocode.maps.co/search?q=${ort}&api_key=65a51c8d6d1e3604044118uife7188e`)
-      .then((response) => {
-        setLat(response.data[0].lat);
-        setLng(response.data[0].lon);
-      })
-    }, [id])
+      if (id !== undefined) {
+        axios
+          .get(`https://geocode.maps.co/search?q=${ort}&api_key=65a51c8d6d1e3604044118uife7188e`)
+          .then((response) => {
+            setLat(response.data[0].lat);
+            setLng(response.data[0].lon);
+          });
+      }
+    }, []);
+ 
   
-    console.log(lat, lng);
-
-   const cleaningFee = 59;
+    const cleaningFee = 59;
   const serviceFee = 39;
   const deposit = preis * 2.5;
 
@@ -243,14 +243,21 @@ const Details = ({ entries }) => {
           
           {lng.length > 0 &&
           <div id="map" className="w-auto h-auto mb-12">
-        <MapContainer center={[lat, lng]} zoom={13} scrollWheelZoom={true}>
+        <MapContainer center={position} zoom={13} scrollWheelZoom={true}>
   <TileLayer
     attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
   />
-  <Marker position={[lat, lng]}>
+  <Marker position={position}>
     <Popup>
-      A pretty CSS3 popup. <br /> Easily customizable.
+      <div className="w-[300px] flex justify-between">
+        <img src={bilder[0]} className="w-[100px] h-[100px] bg-bootbnb-400" />
+        <div className="flex flex-col justify-center items-start">
+        <p className="font-poppins font-semibold">{name}</p>
+        <p className="font-poppins font-medium">{preis}€ pro Nacht</p>
+        <p className="font-poppins font-medium inline-flex items-center">{bewertung} <Unicons.UilStar size={16} /></p>
+        </div>
+      </div>
     </Popup>
   </Marker>
 </MapContainer>
