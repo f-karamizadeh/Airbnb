@@ -78,11 +78,17 @@ export default function Card({ entries, loading }) {
           Clear filter
         </button>
       </div>
-      <div className="auto-rows-auto	grid-container">
-        {filteredUnterkunft.map((unterkunft) => (
-          <Slider key={unterkunft.id} unterkunft={unterkunft} />
-        ))}
-      </div>
+      {filteredUnterkunft.length ? (
+        <div className="auto-rows-auto	grid-container">
+          {filteredUnterkunft.map((unterkunft) => (
+            <Slider key={unterkunft.id} unterkunft={unterkunft} />
+          ))}
+        </div>
+      ) : (
+        <div className="flex justify-center m-9">
+          <p>Leider keine Einträge...</p>
+        </div>
+      )}
     </>
   );
 }
