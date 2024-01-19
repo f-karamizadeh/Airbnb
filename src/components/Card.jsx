@@ -5,12 +5,12 @@ import ClipLoader from "react-spinners/ClipLoader";
 import { Link, useSearchParams } from "react-router-dom";
 import * as Unicons from "@iconscout/react-unicons";
 
-export default function Card({ entries }) {
-  const [searchParams, setSearchParams] = useSearchParams();
-  const [loading, setLoading] = useState(true);
+export default function Card({ entries, loading }) {
+  let [searchParams, setSearchParams] = useSearchParams();
+
   const typeFilter = searchParams.get("type");
 
-  if (!entries || !entries.unterkuenfte || entries.unterkuenfte.length === 0) {
+  if (loading) {
     return (
       <div className="flex justify-center m-10">
         <ClipLoader
@@ -23,22 +23,21 @@ export default function Card({ entries }) {
       </div>
     );
   }
-  const unterkunftArray = entries.unterkuenfte;
 
-  const displayedUnterkunft = typeFilter
-    ? unterkunftArray.filter((unterkunft) => unterkunft.type === typeFilter)
-    : unterkunftArray;
+  const filteredUnterkunft = typeFilter
+    ? entries.filter((unterkunft) => unterkunft.type === typeFilter)
+    : entries;
 
-  function handleFilterChange(key, value) {
+  const handleFilterChange = (type, filter) => {
     setSearchParams((prevParams) => {
-      if (value === null) {
-        prevParams.delete(key);
+      if (filter === null) {
+        prevParams.delete(type);
       } else {
-        prevParams.set(key, value);
+        prevParams.set(type, filter);
       }
       return prevParams;
     });
-  }
+  };
 
   return (
     <>
@@ -80,7 +79,7 @@ export default function Card({ entries }) {
         </button>
       </div>
       <div className="auto-rows-auto	grid-container">
-        {displayedUnterkunft.map((unterkunft) => (
+        {filteredUnterkunft.map((unterkunft) => (
           <Slider key={unterkunft.id} unterkunft={unterkunft} />
         ))}
       </div>

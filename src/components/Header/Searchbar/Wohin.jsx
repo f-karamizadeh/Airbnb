@@ -3,17 +3,20 @@ import Toggle from "../Toggle";
 import WohinButton from "./WohinButton";
 import WohinMap from "./WohinMap";
 
-const Wohin = () => {
-
-  const buttonRef = useRef(null)
+const Wohin = ({ onChange, searchData }) => {
+  const buttonRef = useRef(null);
 
   return (
     <Toggle>
       <Toggle.Button>
-        <WohinButton ref={buttonRef} />
+        <WohinButton
+          ref={buttonRef}
+          onChange={onChange}
+          searchData={searchData}
+        />
       </Toggle.Button>
       <Toggle.On>
-        <WohinMap buttonRef={buttonRef}/>
+        <WohinMap buttonRef={buttonRef} />
       </Toggle.On>
     </Toggle>
   );
