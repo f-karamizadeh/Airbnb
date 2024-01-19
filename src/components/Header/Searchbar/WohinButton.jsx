@@ -1,7 +1,7 @@
 import React from "react";
 import { forwardRef } from "react";
 
-const WohinButton = forwardRef(({}, ref) => {
+const WohinButton = forwardRef(({ onChange, searchData }, ref) => {
   return (
     <div
       ref={ref}
@@ -10,8 +10,11 @@ const WohinButton = forwardRef(({}, ref) => {
       <p className="text-xs">Wohin</p>
       <input
         type="text"
+        name="ort"
+        value={searchData.ort}
         placeholder="Reiseziele suchen"
         className="focus:outline-none bg-transparent"
+        onInput={(e) => onChange(e)}
         onClick={() => console.log("toggleMAp")}
       />
     </div>
