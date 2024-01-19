@@ -32,7 +32,9 @@ function App() {
   }, []);
 
   const filteredEntries = ortFilter
-    ? entries.filter((entry) => entry.ort === ortFilter)
+    ? entries.filter(
+        (entry) => entry.ort.toLowerCase() === ortFilter.toLocaleLowerCase()
+      )
     : entries;
 
   return (
