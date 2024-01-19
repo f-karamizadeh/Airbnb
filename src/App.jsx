@@ -19,7 +19,6 @@ function App() {
   const [entries, setEntries] = useState([]);
 
   const ortFilter = searchParams.get("ort");
-  console.log(ortFilter);
 
   useEffect(() => {
     setLoading(true);
@@ -32,12 +31,9 @@ function App() {
       .catch(console.error);
   }, []);
 
-  console.log(entries);
-
   const filteredEntries = ortFilter
     ? entries.filter((entry) => entry.ort === ortFilter)
     : entries;
-  console.log(filteredEntries);
 
   return (
     <>
