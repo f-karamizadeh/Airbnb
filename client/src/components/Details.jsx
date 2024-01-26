@@ -8,6 +8,7 @@ import axios from "axios";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import { L, Icon } from "leaflet";
 import "leaflet/dist/leaflet.css";
+import { createClient } from "contentful";
 import ClipLoader from "react-spinners/ClipLoader";
 
 const Details = ({ entries }) => {
