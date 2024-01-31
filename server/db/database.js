@@ -12,7 +12,7 @@ pool.connect((err) => {
   if (err) {
     console.log("error connecting to database", err.stack);
   } else {
-    console.log("Connected to database! ♥︎");
+    console.log("Connected to database ♥︎\nMay the query be with you!");
   }
 });
 
