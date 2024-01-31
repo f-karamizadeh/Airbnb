@@ -88,7 +88,7 @@ export default function Card({ entries, loading }) {
         <div className="flex justify-center m-9">
           <p>Leider keine Einträge...</p>
         </div>
-      )}
+      )} 
     </>
   );
 }
