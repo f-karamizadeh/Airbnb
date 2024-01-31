@@ -36,14 +36,15 @@ function App() {
     setLoading(true);
     (async () => {
       try {
-        const res = await axios.get("http://localhost:3000/contentful");
-        setEntries(res.data.items[0].fields.accommodations.unterkuenfte);
-        setLoading(false);
+        const res = await fetch("http://localhost:3000/")
+        const data = await res.json()
+        setEntries(data)
       } catch (error) {
         console.error(error);
       }
     })();
   }, []);
+
 
   const filteredEntries = ortFilter
     ? entries.filter(

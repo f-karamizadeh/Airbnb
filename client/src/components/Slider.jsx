@@ -4,7 +4,7 @@ import { Link, useParams } from "react-router-dom";
 import "./Card.css";
 
 const Slider = ({ unterkunft }) => {
-  const images = unterkunft.bilder;
+  const images = [unterkunft.bilder0, unterkunft.bilder1];
 
   const [currentIndex, setCurrentIndex] = useState(0);
   const guestfav =
@@ -69,7 +69,7 @@ const Slider = ({ unterkunft }) => {
           <span className="pstar">
             <Unicons.UilFavorite className="star" /> {unterkunft.bewertung}
           </span>
-          <p>{unterkunft.ausstattung.join(",")}</p>
+          <p>{unterkunft.ausstattung0} | {unterkunft.ausstattung1} | {unterkunft.ausstattung2}</p>
           <p className="pdate ">7.-12. Okt. </p>
           <p className="pprice inlineblock"> {unterkunft.preis} € </p>{" "}
           <p className="inlineblock"> Nacht</p>

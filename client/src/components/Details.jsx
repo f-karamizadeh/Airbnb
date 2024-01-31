@@ -31,9 +31,9 @@ const Details = ({ entries }) => {
     filteredUnterkunft = entries.find((unterkunft) => unterkunft.id === idUrl);
   }
 
-  let name, ort, preis, bilder, bewertung, ausstattung;
+  let name, ort, preis, bilder0, bilder1, bewertung, ausstattung0, ausstattung1, ausstattung2;
   if (entries.length) {
-    ({ name, ort, preis, bilder, bewertung, ausstattung } = filteredUnterkunft);
+    ({ name, ort, preis, bilder0, bilder1, bewertung, ausstattung0, ausstattung1, ausstattung2 } = filteredUnterkunft);
   }
 
   useEffect(() => {
@@ -102,7 +102,7 @@ const Details = ({ entries }) => {
           <div className="h-auto my-10 lg:flex justify-center items-center gap-4 hidden">
             <div>
               <img
-                src={bilder[0]}
+                src={bilder0}
                 className="bg-bootbnb-800 w-[497px] h-[497px] rounded-tl-xl rounded-bl-xl"
               />
             </div>
@@ -110,7 +110,7 @@ const Details = ({ entries }) => {
               <div className="flex gap-4">
                 <div>
                   <img
-                    src={bilder[1]}
+                    src={bilder1}
                     className="w-[240px] h-[240px] bg-bootbnb-400"
                   />
                 </div>
@@ -140,7 +140,7 @@ const Details = ({ entries }) => {
 
           <div className="lg:hidden my-2 flex flex-col gap-4">
             <div>
-              <img src={bilder[0]} className="w-full h-auto" />
+              <img src={bilder0} className="w-full h-auto" />
             </div>
           </div>
 
@@ -240,15 +240,15 @@ const Details = ({ entries }) => {
                   <ul>
                     <li className="flex flex-row">
                       <Unicons.UilCheck className="mr-2" />
-                      {ausstattung[0]}
+                      {ausstattung0}
                     </li>
                     <li className="flex flex-row">
                       <Unicons.UilCheck className="mr-2" />
-                      {ausstattung[1]}
+                      {ausstattung1}
                     </li>
                     <li className="flex flex-row">
                       <Unicons.UilCheck className="mr-2" />
-                      {ausstattung[2]}
+                      {ausstattung2}
                     </li>
                   </ul>
                 </div>
@@ -269,7 +269,7 @@ const Details = ({ entries }) => {
                       <Popup>
                         <div className="w-[300px] flex justify-between">
                           <img
-                            src={bilder[0]}
+                            src={bilder0}
                             className="w-[100px] h-[100px] bg-bootbnb-400"
                           />
                           <div className="flex flex-col justify-center items-start">
