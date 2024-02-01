@@ -4,7 +4,7 @@ import { Link, useParams } from "react-router-dom";
 import "./Card.css";
 
 const Slider = ({ unterkunft }) => {
-  const images = [unterkunft.bilder0, unterkunft.bilder1];
+  const images = Array.isArray(unterkunft.bilder) ? unterkunft.bilder : [];
 
   const [currentIndex, setCurrentIndex] = useState(0);
   const guestfav =
@@ -21,6 +21,8 @@ const Slider = ({ unterkunft }) => {
       (prevIndex) => (prevIndex - 1 + images.length) % images.length
     );
   };
+
+
 
   return (
     <>
