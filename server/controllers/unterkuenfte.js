@@ -26,9 +26,9 @@ export const getUnterkunftById = async (req, res) => {
 
 // POST new unterkunft
     export const createUnterkunft = async (req, res) => {
-        const { name, ort, preis, guest_favorite, bilder0, bilder1, bewertung, type, ausstattung0, ausstattung1, ausstattung2 } = req.body;
+        const { name, ort, preis, guest_favorite, bewertung, bilder0, bilder1, type, ausstattung0, ausstattung1, ausstattung2 } = req.body;
         try {
-            const result = await pool.query("INSERT INTO unterkuenfte (name, ort, preis, guest_favorite, bilder0, bilder1, bewertung, type, ausstattung0, ausstattung1, ausstattung2) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11)", [name, ort, preis, guest_favorite, bilder0, bilder1, bewertung, type, ausstattung0, ausstattung1, ausstattung2]);
+            const result = await pool.query("INSERT INTO unterkuenfte (name, ort, preis, guest_favorite, bewertung, bilder0, bilder1, type, ausstattung0, ausstattung1, ausstattung2) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11)", [name, ort, preis, guest_favorite, bewertung, bilder0, bilder1, type, ausstattung0, ausstattung1, ausstattung2]);
             res.json(result.rows[0]);
         } catch (error) {
             res.status(500).json({ error: error.message });
