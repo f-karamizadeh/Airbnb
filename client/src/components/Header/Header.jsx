@@ -5,6 +5,7 @@ import MenuButton from "./Menu/MenuButton";
 import MenuEntries from "./Menu/MenuEntries";
 import MenuWrapper from "./Menu/MenuWrapper";
 import Searchbar from "./Searchbar/Searchbar";
+import Logo from "../../assets/bootbnb-logo.svg";
 
 const navigation = [
   { name: "Unterkünfte", href: "/", current: true },
@@ -27,11 +28,7 @@ function Header() {
       >
         <div id="logo" className="pl-12 w-[50%] lg:w-[25%] ">
           <a href="/">
-            <img
-              src="/src/assets/bootbnb-logo.svg"
-              alt="bootbnb"
-              className="w-48"
-            />
+            <img src={Logo} alt="bootbnb" className="w-48" />
           </a>
         </div>
 
