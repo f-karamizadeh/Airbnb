@@ -4,6 +4,7 @@ import Header from "./components/Header/Header";
 import Footer from "./components/footer";
 import Card from "./components/Card";
 import Details from "./components/Details";
+import Create from "./components/Create";
 import { createClient } from "contentful";
 import { Routes, Route } from "react-router-dom";
 import { useSearchParams } from "react-router-dom";
@@ -59,6 +60,7 @@ function App() {
         <Route path="/">
           <Route index element={<Card entries={filteredEntries} />} />
           <Route path="details/:id" element={<Details entries={entries} />} />
+          <Route path="create" element={<Create />} />
         </Route>
       </Routes>
       <Footer />
