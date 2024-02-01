@@ -33,7 +33,7 @@ console.log(unterkunft)
 const handleSubmit = async (e) => {
   e.preventDefault();
   try {
-    const response = await axios.post("http://localhost:3000/create", unterkunft);
+    const response = await axios.post("https://bootbnb.onrender.com/create", unterkunft);
     console.log(response.data);
   } catch (error) {
     console.error(error);
