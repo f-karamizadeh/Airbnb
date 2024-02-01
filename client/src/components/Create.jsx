@@ -14,8 +14,7 @@ const Create = () => {
     ausstattung1: "",
     ausstattung2: "",
     guest_favorite: false,
-    bilder0: "",
-    bilder1: "",
+    bilder: ["https://i.ibb.co/tBqcDjL/loft1.jpg", "https://i.ibb.co/6wXvLBH/haus-see.jpg", "https://i.ibb.co/SvwF72z/loft2.jpg"],
     bewertung: "5",
   })
 
