@@ -38,7 +38,7 @@ function App() {
     setLoading(true);
     (async () => {
       try {
-        const res = await fetch("http://localhost:3000/")
+        const res = await fetch("https://bootbnb.onrender.com/")
         const data = await res.json()
         setEntries(data)
       } catch (error) {
