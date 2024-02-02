@@ -1,6 +1,7 @@
 import * as Unicons from "@iconscout/react-unicons";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 
 
@@ -30,11 +31,14 @@ const Create = () => {
 
 console.log(unterkunft)
 
+const navigate = useNavigate();
+
 const handleSubmit = async (e) => {
   e.preventDefault();
   try {
     const response = await axios.post("https://bootbnb.onrender.com/create", unterkunft);
     console.log(response.data);
+    navigate("/");	
   } catch (error) {
     console.error(error);
   }
