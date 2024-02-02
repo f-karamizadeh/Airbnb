@@ -30,7 +30,7 @@ function MenuEntries({ buttonRef }) {
       >
         <ul>
           <li className="p-3 font-semibold hover:bg-gray-100">Registrieren</li>
-          <li className="p-3 border-b-2 hover:bg-gray-100"><a href="/login">Einloggen</a></li>
+          <a href="/login"><li className="p-3 border-b-2 hover:bg-gray-100">Einloggen</li></a>
         </ul>
         <ul>
           <li className="p-3 hover:bg-gray-100">Geschenkkarten</li>
