@@ -9,6 +9,6 @@ const router = Router();
 
 router.get("/", getUnterkuenfte);
 router.get("/:id", getUnterkunftById);
-router.post("/create", createUnterkunft);
+router.post('/create', upload.array('bilder'), createUnterkunft);
 
 export default router;
